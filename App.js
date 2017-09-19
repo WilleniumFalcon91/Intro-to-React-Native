@@ -3,7 +3,7 @@ import {
   StyleSheet, 
   Text,
   TextInput,
-  View,
+  ScrollView,
   Image,
 } from 'react-native';
 
@@ -14,26 +14,27 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.contentContainer} keyboardDismissMode='interactive'>
         <Image 
-          source={{uri: 'https://www.noupe.com/wp-content/uploads/trans/wp-content/uploads/2010/02/waves_3.jpg'}}
+          source={{uri: 'http://bestanimations.com/Nature/Water/wave-ocean-animated-gif-6.gif'}}
           style={{ width: 275, height: 175, margin: 20}}
         />
         <Text>Hi Max!!!</Text>
         <Text>This is my favorite demo.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
+        <Text>{this.state.text}</Text>
         <TextInput
           style={{height: 40, width: 200, borderColor: 'gray', borderWidth: 1, margin: 20}}
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
         />
-      </View>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  contentContainer: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
